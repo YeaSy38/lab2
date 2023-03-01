@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Вимикач лампочки</title>
+    <style>
+      #lamp {
+        height: 200px;
+        width: 200px;
+        background-color: white;
+        border-radius: 50%;
+        margin: 20px;
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+      }
+      .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lamp"></div>
+    <button class="btn" onclick="switchOn()">Увімкнути</button>
+    <button class="btn" onclick="switchOff()">Вимкнути</button>
+
+    <script>
+      var lamp = document.getElementById("lamp");
+
+      function switchOn() {
+        lamp.style.backgroundColor = "yellow";
+      }
+
+      function switchOff() {
+        lamp.style.backgroundColor = "white";
+      }
+    </script>
+  </body>
+</html>

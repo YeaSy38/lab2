@@ -1,0 +1,75 @@
+git remote add origin https://github.com/YeaSy38/lab2.git git branch -M main git
+push -u origin main
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Світлофор</title>
+    <style>
+      #traffic-light {
+        height: 300px;
+        width: 150px;
+        background-color: black;
+        border-radius: 20px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+      }
+      .light {
+        height: 80px;
+        width: 80px;
+        background-color: gray;
+        border-radius: 50%;
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.5s;
+      }
+      .red {
+        background-color: red;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="traffic-light">
+      <div class="light red"></div>
+      <div class="light yellow"></div>
+      <div class="light green"></div>
+    </div>
+
+    <script>
+      var redLight = document.querySelector(".red");
+      var yellowLight = document.querySelector(".yellow");
+      var greenLight = document.querySelector(".green");
+
+      function switchLights() {
+        if (redLight.classList.contains("red")) {
+          redLight.classList.remove("red");
+          yellowLight.classList.add("yellow");
+          setTimeout(function () {
+            yellowLight.classList.remove("yellow");
+            greenLight.classList.add("green");
+          }, 2000);
+        } else if (yellowLight.classList.contains("yellow")) {
+          yellowLight.classList.remove("yellow");
+          greenLight.classList.add("green");
+        } else if (greenLight.classList.contains("green")) {
+          greenLight.classList.remove("green");
+          yellowLight.classList.add("yellow");
+          setTimeout(function () {
+            yellowLight.classList.remove("yellow");
+            redLight.classList.add("red");
+          }, 2000);
+        }
+      }
+
+      setInterval(switchLights, 6000);
+    </script>
+  </body>
+</html>
